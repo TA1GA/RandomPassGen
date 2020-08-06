@@ -13,5 +13,5 @@ I will be adding more fonctions as things progress
 
 ## Advancements 
 
-[x] Simple password generator (No choice)
-[ ] Add choices of characters to put or not 
+- [x] Simple password generator (No choice)
+- [ ] Add choices of characters to put or not 
