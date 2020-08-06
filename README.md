@@ -8,7 +8,9 @@ I will be adding more fonctions as things progress
 ## Setup
 
 `git clone https://github.com/TA1GA/RandomPassGen.git`
+
 `cd RandomPassGen`
+
 `./RandPassGen.py`
 
 ## Advancements 
