@@ -17,3 +17,4 @@ I will be adding more fonctions as things progress
 
 - [x] Simple password generator (No choice)
 - [x] Add choices of characters to put or not 
+- [x] Add choice of how many generations you want
