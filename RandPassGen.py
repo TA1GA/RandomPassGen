@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import random
+import sys
 
 lowercase = ['z', 'p', 'v', 'x', 'u', 'd', 'f', 'g', 'b', 'c', 'w', 'o', 'l', 'm', 's', 'a', 'j', 'h', 'i', 'q', 't', 'e', 'n', 'r', 'y', 'k']
 uppercase = ['U', 'A', 'V', 'F', 'W', 'O', 'G', 'Z', 'E', 'T', 'S', 'P', 'I', 'N', 'B', 'H', 'X', 'C', 'K', 'L', 'M', 'Q', 'Y', 'D', 'J', 'R']
@@ -16,13 +17,6 @@ def shuffle():
     random.shuffle(sp_ch)
 
 shuffle()
-
-lenght = int(input("Enter the lenght of your password : "))
-
-choice_lower =  input("Do you want to use lower case letters ? (Y/n)")
-choice_upper =  input("Do you want to use upper case letters ? (Y/n)")
-choice_nb =     input("Do you want to use numbers ? (Y/n)")
-choice_spch =   input("Do you want to use special characters ? (Y/n)")
 
 def passAppendLower():
     global choice_lower
@@ -52,16 +46,42 @@ def passAppendSpCh():
         password.append(sp_ch[rand_spch])   
     else:
         pass
-   
-    
 
-for i in range(lenght):
-    rand = random.randint(0,24)
-    rand_nb = random.randint(0,8)
-    rand_spch = random.randint(0,len(sp_ch)-1)
-    random.choice([passAppendLower, passAppendUpper, passAppendNb, passAppendSpCh])()
 
-print("Your randomly generated password is :", end = ' ')
-for i in range(len(password)-1):
-    print(password[i],end='')
-print(password[len(password)-1], end = '\n')
+length = int(input("Enter the lenght of your password : "))
+nb_pass = input("How many passwords do you want to generate ? (Leave empty for one): ")
+
+choice_lower =  input("Do you want to use lower case letters ? (Y/n)")
+choice_upper =  input("Do you want to use upper case letters ? (Y/n)")
+choice_nb =     input("Do you want to use numbers ? (Y/n)")
+choice_spch =   input("Do you want to use special characters ? (Y/n)")
+
+if nb_pass == '':
+    nb_pass = '1'
+
+
+# PassGen
+
+try:
+    for i in range(int(nb_pass)):
+        for i in range(length):
+            rand = random.randint(0,24)
+            rand_nb = random.randint(0,8)
+            rand_spch = random.randint(0,len(sp_ch)-1)
+            random.choice([passAppendLower, passAppendUpper, passAppendNb, passAppendSpCh])()
+        
+        for i in range(len(password)-1):
+            print(password[i],end='')
+        print(password[len(password)-1], end = '\n')
+
+except Exception:
+    print("[!] You entered a non-valid number of generations.")
+    sys.exit(1)
+
+###############################################################################################
+
+
+# print("Your randomly generated password is :", end = ' ')
+
+
+
