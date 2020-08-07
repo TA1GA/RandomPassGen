@@ -59,20 +59,29 @@ choice_spch =   input("Do you want to use special characters ? (Y/n)")
 if nb_pass == '':
     nb_pass = '1'
 
+print()
+
+if nb_pass == '1':
+    print("Your randomly generated password is :")
+else:
+    print("Your randomly generated passwords are :")
+print()
 
 # PassGen
 
 try:
     for i in range(int(nb_pass)):
-        for i in range(length):
+        for y in range(length):
             rand = random.randint(0,24)
             rand_nb = random.randint(0,8)
             rand_spch = random.randint(0,len(sp_ch)-1)
             random.choice([passAppendLower, passAppendUpper, passAppendNb, passAppendSpCh])()
-        
+        print(str(i+1)+'.', end=' ')
         for i in range(len(password)-1):
             print(password[i],end='')
         print(password[len(password)-1], end = '\n')
+        password.clear()
+        print()
 
 except Exception:
     print("[!] You entered a non-valid number of generations.")
@@ -80,8 +89,4 @@ except Exception:
 
 ###############################################################################################
 
-
-# print("Your randomly generated password is :", end = ' ')
-
-
-
+print()
